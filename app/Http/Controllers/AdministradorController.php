@@ -36,6 +36,8 @@ class AdministradorController extends Controller
     public function store(Request $request)
     {
         //
+        $datosEmpleado = request()->all();
+        return response()->json($datosEmpleado);
     }
 
     /**

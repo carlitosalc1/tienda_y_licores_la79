@@ -1,5 +1,6 @@
 Formulario para registrar empleados
-<form action="" method="post" enctype="multiplart/form-data"> 
+<form action="{{ url('/empleado') }}" method="post" enctype="multiplart/form-data"> 
+@csrf
 <br>
 <label for="Tipo de Identificacion"> Tipo de Identificacion </label>
 <input type="text" name="Tipo de identificacion">
@@ -25,6 +26,6 @@ Formulario para registrar empleados
 <label for="Foto"> Foto </label>
 <input type="file" name="Foto">
 <br><br>
-<input type="submit" name="Enviar">
+<input type="submit" value="Guardar datos">
 <br><br>
 </form>
