@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Administrador;
+use App\Models\Personas_roles;
 use Illuminate\Http\Request;
 
-class AdministradorController extends Controller
+class PersonasRolesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,16 +36,15 @@ class AdministradorController extends Controller
     public function store(Request $request)
     {
         //
-       
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Administrador  $administrador
+     * @param  \App\Models\Personas_roles  $personas_roles
      * @return \Illuminate\Http\Response
      */
-    public function show(Administrador $administrador)
+    public function show(Personas_roles $personas_roles)
     {
         //
     }
@@ -53,10 +52,10 @@ class AdministradorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Administrador  $administrador
+     * @param  \App\Models\Personas_roles  $personas_roles
      * @return \Illuminate\Http\Response
      */
-    public function edit(Administrador $administrador)
+    public function edit(Personas_roles $personas_roles)
     {
         //
     }
@@ -65,10 +64,10 @@ class AdministradorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Administrador  $administrador
+     * @param  \App\Models\Personas_roles  $personas_roles
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Administrador $administrador)
+    public function update(Request $request, Personas_roles $personas_roles)
     {
         //
     }
@@ -76,10 +75,10 @@ class AdministradorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Administrador  $administrador
+     * @param  \App\Models\Personas_roles  $personas_roles
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Administrador $administrador)
+    public function destroy(Personas_roles $personas_roles)
     {
         //
     }

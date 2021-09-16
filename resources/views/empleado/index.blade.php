@@ -17,18 +17,18 @@ Mostrar las listas de empleados
     </thead>
 
     <tbody>
-        @foreach( $empleado as $empleado )
+        @foreach( $empleados as $empleado )
         <tr>
             <td>{{ $empleado->id }}</td>
-            <td>{{ $empleado->Foto }}</td>
-            <td>{{ $empleado->TipoIdentificacion }}</td>
-            <td>{{ $empleado->NumeroIdentificacion }}</td>
-            <td>{{ $empleado->Nombre }}</td>
-            <td>{{ $empleado->Apellido }}</td>
-            <td>{{ $empleado->Direccion }}</td>
-            <td>{{ $empleado->Telefono }}</td>
-            <td>{{ $empleado->Corrreo }}</td>
-            <td>{{ Editar  Borrar }}</td>
+            <td>{{ $empleado->foto }}</td>
+            <td>{{ $empleado->tipo_identificacion }}</td>
+            <td>{{ $empleado->numero_identificacion }}</td>
+            <td>{{ $empleado->nombre }}</td>
+            <td>{{ $empleado->apellido }}</td>
+            <td>{{ $empleado->direccion }}</td>
+            <td>{{ $empleado->telefono }}</td>
+            <td>{{ $empleado->corrreo }}</td>
+            <td> Editar | Borrar </td>
         </tr>
         @endforeach
     </tbody>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\empleado;
+use App\Models\Empleado;
 use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
@@ -15,7 +15,7 @@ class EmpleadoController extends Controller
     public function index()
     {
         //
-        $datos['empleado']=Empleado::paginate(3);
+        $datos['empleados']=Empleado::paginate(3);
         return view('empleado.index',$datos);
     }
 
@@ -39,6 +39,15 @@ class EmpleadoController extends Controller
     public function store(Request $request)
     {
         //
+        //$datosEmpleado = request()->all();
+          $datosEmpleado = request()->except('_token');
+          if($request->hasFile('foto')){
+              $datosEmpleado['foto']=$request->file('Foto')->store('uploads','public');
+          }
+          
+          Empleado::insert($datosEmpleado);
+          return response()->json($datosEmpleado);
+        return response()->json($datosEmpleados);
     }
 
     /**
@@ -50,13 +59,7 @@ class EmpleadoController extends Controller
     public function show(empleado $empleado)
     {
         //
-        /*$datosEmpleado = request()->all();*/
-        $datosEmpleado = request()->except('_token');
-        if(request->hash_file('Foto')){
-            $datosEmpleado['Foto']=$request->file('Foto')->store('uploads','public');
-        }
-        Empleados::insert($datosEmpleado);
-        return response()->json($datosEmpleado);
+      
     }
 
     /**

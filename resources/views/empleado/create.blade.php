@@ -3,28 +3,28 @@ Formulario para registrar empleados
 @csrf
 <br>
 <label for="Tipo de Identificacion"> Tipo de Identificacion </label>
-<input type="text" name="Tipo de identificacion">
+<input type="text" name="tipo_identificacion">
 <br><br>
 <label for="Numero de Identificacion"> Numero de identificacion </label>
-<input type="text" name="Numero de identificacion">
+<input type="text" name="numero_identificacion">
 <br><br>
 <label for="Nombre"> Nombre </label>
-<input type="text" name="Nombre">
+<input type="text" name="nombre">
 <br><br>
 <label for="Apellido"> Apellido </label>
-<input type="text" name="Apellido">
+<input type="text" name="apellido">
 <br><br>
 <label for="Direccion"> Direccion </label>
-<input type="text" name="Direccion">
+<input type="text" name="direccion">
 <br><br>
 <label for="Telefono"> Telefono </label>
-<input type="text" name="Telefono">
+<input type="text" name="telefono">
 <br><br>
 <label for="Correo"> Correo</label>
-<input type="text" name="Correo">
+<input type="text" name="correo">
 <br><br>
 <label for="Foto"> Foto </label>
-<input type="file" name="Foto">
+<input type="file" name="foto">
 <br><br>
 <input type="submit" value="Guardar datos">
 <br><br>
