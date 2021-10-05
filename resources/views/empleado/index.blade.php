@@ -5,7 +5,6 @@ Mostrar las listas de empleados
     <thead class="thead-dark">
         <tr>
             <th>#</th>
-            <th>Foto</th>
             <th>Tipo de Identificacion</th>
             <th>Numero de Identificacion</th>
             <th>Nombre</th>
@@ -22,8 +21,8 @@ Mostrar las listas de empleados
         <tr>
             <td>{{ $empleado->id }}</td>
 
-            <td>
-              <img scr="{{ asset('storage').'/'.$empleado->foto}}" alt="">  
+            <!-- <td>
+              <img scr="{{ asset('storage').'/'.$empleado->foto}}" alt="">   -->
                            
             
           </td>
@@ -55,3 +54,5 @@ Mostrar las listas de empleados
         
     </tbody>
 </table>
+</div>
+@endsection

@@ -15,7 +15,7 @@ class EmpleadoController extends Controller
     public function index()
     {
         //
-        $datos['empleados']=Empleado::paginate(2);
+        $datos['empleados']=Empleado::paginate(4);
         return view('empleado.index',$datos);
     }
 
@@ -42,8 +42,8 @@ class EmpleadoController extends Controller
         //$datosEmpleado = request()->all();
           $datosEmpleado = request()->except('_token');
 
-          if($request->hasFile('foto')){
-              $datosEmpleado['foto']=$request->file('foto')->store('uploads','public');
+        //   if($request->hasFile('foto')){
+        //       $datosEmpleado['foto']=$request->file('foto')->store('uploads','public');
           }
           
           Empleado::insert($datosEmpleado);
