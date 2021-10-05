@@ -15,7 +15,7 @@ class EmpleadoController extends Controller
     public function index()
     {
         //
-        $datos['empleados']=Empleado::paginate(3);
+        $datos['empleados']=Empleado::paginate(2);
         return view('empleado.index',$datos);
     }
 
@@ -41,8 +41,9 @@ class EmpleadoController extends Controller
         //
         //$datosEmpleado = request()->all();
           $datosEmpleado = request()->except('_token');
+
           if($request->hasFile('foto')){
-              $datosEmpleado['foto']=$request->file('Foto')->store('uploads','public');
+              $datosEmpleado['foto']=$request->file('foto')->store('uploads','public');
           }
           
           Empleado::insert($datosEmpleado);
@@ -68,9 +69,11 @@ class EmpleadoController extends Controller
      * @param  \App\Models\empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function edit(empleado $empleado)
+    public function edit($id)
     {
         //
+        $empleado=empleado::findorfail($id);
+        return view('empleado.edit', compact('empleado'));
     }
 
     /**
@@ -80,9 +83,14 @@ class EmpleadoController extends Controller
      * @param  \App\Models\empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, empleado $empleado)
+    public function update(Request $request, $id)
     {
         //
+        $datosEmpleado = request()->except(['_token','_method']);
+        empleado::where('id','=',$id)->update($datosEmpleado);
+
+        $empleado=empleado::findorfail($id);
+        return view('empleado.edit', compact('empleado'));
     }
 
     /**
@@ -91,8 +99,10 @@ class EmpleadoController extends Controller
      * @param  \App\Models\empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(empleado $empleado)
+    public function destroy($id)
     {
         //
+        empleado::destroy($id);
+        return redirect('empleado');
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'home', 'title' => __('Material Dashboard')])
+@extends('layouts.main', ['class' => 'off-canvas-sidebar', 'activePage' => 'home', 'title' => __('')])
 
 @section('content')
 <div class="container" style="height: auto;">
@@ -6,7 +6,7 @@
       <div class="col-lg-7 col-md-8">
           <div class="card card-login card-hidden mb-3">
             <div class="card-header card-header-primary text-center">
-              <p class="card-title"><strong>{{ __('Verify Your Email Address') }}</strong></p>
+              <p class="card-title"><strong>{{ __('Verifique su direccion de Correo') }}</strong></p>
             </div>
             <div class="card-body">
               <p class="card-description text-center"></p>
@@ -23,7 +23,7 @@
                     {{ __('If you did not receive the email') }},  
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click para Verificar') }}</button>.
                     </form>
                 @endif
               </p>
@@ -33,3 +33,4 @@
   </div>
 </div>
 @endsection
+
