@@ -19,11 +19,11 @@
 <label for="Correo"> Correo</label>
 <input type="text" name="correo" value="{{ $empleado->correo }}" id="correo">
 <br><br>
-<label for="Foto"> Foto </label>
+<!-- <label for="Foto"> Foto </label>
 {{ $empleado->foto }}
 <img scr="{{ asset('storage').'/'.$empleado->foto }}" alt="">  
 
 <input type="file" name="foto" value="" id="foto">
-<br><br>
+<br><br> -->
 <input type="submit" value="Guardar datos">
 <br><br>
