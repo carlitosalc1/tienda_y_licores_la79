@@ -44,12 +44,14 @@ class EmpleadoController extends Controller
 
         //   if($request->hasFile('foto')){
         //       $datosEmpleado['foto']=$request->file('foto')->store('uploads','public');
-          }
-          
-          Empleado::insert($datosEmpleado);
-          return response()->json($datosEmpleado);
-        return response()->json($datosEmpleados);
+        
+        Empleado::insert($datosEmpleado);
+        return response()->json($datosEmpleado);
+      return response()->json($datosEmpleados);
+
     }
+          
+
 
     /**
      * Display the specified resource.
@@ -90,7 +92,7 @@ class EmpleadoController extends Controller
         empleado::where('id','=',$id)->update($datosEmpleado);
 
         $empleado=empleado::findorfail($id);
-        return view('empleado.edit', compact('empleado'));
+        return redirect('empleado');
     }
 
     /**

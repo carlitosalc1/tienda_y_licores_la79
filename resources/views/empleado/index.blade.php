@@ -1,3 +1,6 @@
+@extends('layouts.main')
+@section('content')
+
 Mostrar las listas de empleados
 
 <table class="table table-dark">
