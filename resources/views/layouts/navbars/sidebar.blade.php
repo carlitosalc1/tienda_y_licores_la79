@@ -15,12 +15,12 @@
         </a>
         <div class="collapse show" id="laravelExample">
           <ul class="nav">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#">
                 <span class="sidebar-mini"> UP </span>
                 <span class="sidebar-normal">{{ __('User profile') }} </span>
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <span class="sidebar-mini"> UM </span>
@@ -31,44 +31,44 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ url ('empleado') }}">
           <i class="material-icons">engineering</i>
           <p>{{ __('Empleados') }}</p>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="">
           <i class="material-icons">airport_shuttle</i>
             <p>{{ __('Proveedores') }}</p>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="">
           <i class="material-icons">wc</i>
             <p>{{ __('Clientes') }}</p>
         </a>
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="">
           <i class="material-icons">location_ons</i>
             <p>{{ __('Productos') }}</p>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="">
           <i class="material-icons"> shopping_cart</i>
           <p>{{ __('Ventas') }}</p>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="">
           <i class="material-icons">assignment</i>
           <p>{{ __('Factura') }}</p>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="">
           <i class="material-icons">receipt</i>
           <p>{{ __('Reporte') }}</p>
         </a>

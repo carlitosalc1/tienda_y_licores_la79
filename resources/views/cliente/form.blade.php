@@ -1,4 +1,4 @@
-<h1> {{ $modo }} empleado </h1>
+<h1> {{ $modo }} cliente </h1>
 <label for="Tipo de Identificacion"> Tipo de Identificacion </label>
 <input type="text" name="tipo_identificacion" value="{{ isset($empleado->tipo_identificacion) ? $empleado->tipo_identificacion : ''  }}" id="tipo_identificacion">
 <br><br>
@@ -19,8 +19,6 @@
 <br><br>
 <label for="Correo"> Correo</label>
 <input type="text" name="correo" value="{{ isset($empleado->correo) ? $empleado->correo : ''  }}" id="correo">
-<br><br>
-<label for="Usuario"> Usario</label>
 <br><br>
 <input type="submit" value=" Guardar datos" >
 <br><br>

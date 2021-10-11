@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 
-<h1> Mostrar las listas de Empleados </h1>
+<h1> Mostrar las listas de clientes </h1>
 
 <table class="table table-dark">
 
@@ -15,15 +15,14 @@
             <th>Direccion</th>
             <th>Telefono</th>
             <th>Correo</th>
-            <th>Usuario</th>
             <th>Acciones</th>
         </tr>
     </thead>
 
     <tbody>
-        @foreach( $empleados as $empleado )
+        @foreach( $clientes as $cliente )
         <tr>
-            <td>{{ $empleado->id }}</td>
+            <td>{{ $cliente->id }}</td>
 
             <!-- <td>
               <img scr="{{ asset('storage').'/'.$empleado->foto}}" alt="">   -->
@@ -38,14 +37,13 @@
             <td>{{ $empleado->direccion }}</td>
             <td>{{ $empleado->telefono }}</td>
             <td>{{ $empleado->correo }}</td>
-            <td>{{ $empleado->usuario }}</td>
             <td> 
-                <a href="{{url('/empleado/'.$empleado->id.'/edit') }}">
+                <a href="{{url('/cliente/'.$cliente->id.'/edit') }}">
                 Editar 
             </a>
                 
 
-             <form action="{{ url('/empleado/'.$empleado->id ) }}" method="post">
+             <form action="{{ url('/cliente/'.$cliente->id ) }}" method="post">
              @csrf
              {{method_field('DELETE') }}
             <input type="submit" onclick="return confirm('¿ Quieres borrar ?')"
