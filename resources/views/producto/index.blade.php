@@ -1,7 +1,9 @@
 @extends('layouts.main')
 @section('content')
+<div class="container">
 
-<h1> Mostrar las listas de Productos </h1>
+<h1> Mostrar la lista de Productos </h1>
+<a href="producto/create" class="btn btn-primary mb-3">Crear un Producto</a>
 
 <table class="table table-dark">
 
@@ -54,7 +56,7 @@
              </form>   
             
             
-            
+            </td>
         </tr>
         @endforeach
         

@@ -15,7 +15,7 @@ class EmpleadoController extends Controller
     public function index()
     {
         //
-        $datos['empleados']=Empleado::paginate(4);
+        $datos['empleados'] = Empleado::paginate(4);
         return view('empleado.index',$datos);
     }
 
@@ -39,6 +39,21 @@ class EmpleadoController extends Controller
     public function store(Request $request)
     {
         //
+        $campos=[
+            'Tipo de identificacio'=>'required|string|max:100',
+            'Numero de identificacion'=>'required|string|max:100',
+            'Nombre'=>'required|string|max:100',
+            'Apellido'=>'required|string|max:100',
+            'Direccion'=>'required|string|max:100',
+            'Telefono'=>'required|string|max:100',
+            'Correo'=>'required|email',
+
+        ];
+        $mensaje=[
+            'required'=>'El :attribute es requerido',
+        ];
+        $this->validate($request, $campos,$mensaje);
+
         //$datosEmpleado = request()->all();
           $datosEmpleado = request()->except('_token');
 

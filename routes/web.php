@@ -31,28 +31,28 @@ use App\Http\Controllers\ProductoController;
 
 
 
-Route::resource('empleado',EmpleadoController::class);
+Route::resource('empleado',EmpleadoController::class)->middleware('auth');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::resource('producto',ProductoController::class);
+Route::resource('producto',ProductoController::class)->middleware('auth');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::resource('cliente',ClienteController::class);
+Route::resource('cliente',ClienteController::class)->middleware('auth');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::resource('proveedor',ProveedorController::class);
+Route::resource('proveedor',ProveedorController::class)->middleware('auth');
 
 Auth::routes();
 

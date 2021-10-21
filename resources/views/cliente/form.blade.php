@@ -20,5 +20,5 @@
 <label for="Correo"> Correo</label>
 <input type="text" name="correo" value="{{ isset($empleado->correo) ? $empleado->correo : ''  }}" id="correo">
 <br><br>
-<input type="submit" value=" Guardar datos" >
+<input type="submit" value="{{ $modo }} datos" >
 <br><br>

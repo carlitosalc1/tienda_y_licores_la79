@@ -1,7 +1,9 @@
 @extends('layouts.main')
 @section('content')
+<div class="container">
 
-<h1> Mostrar las listas de clientes </h1>
+<h1> Mostrar la lista de Clientes </h1>
+<a href="cliente/create" class="btn btn-primary mb-3">Crear un Cliente</a>
 
 <table class="table table-dark">
 
@@ -30,13 +32,13 @@
             
           </td>
 
-            <td>{{ $empleado->tipo_identificacion }}</td>
-            <td>{{ $empleado->numero_identificacion }}</td>
-            <td>{{ $empleado->nombre }}</td>
-            <td>{{ $empleado->apellido }}</td>
-            <td>{{ $empleado->direccion }}</td>
-            <td>{{ $empleado->telefono }}</td>
-            <td>{{ $empleado->correo }}</td>
+            <td>{{ $cliente->tipo_identificacion }}</td>
+            <td>{{ $cliente->numero_identificacion }}</td>
+            <td>{{ $cliente->nombre }}</td>
+            <td>{{ $cliente->apellido }}</td>
+            <td>{{ $cliente->direccion }}</td>
+            <td>{{ $cliente->telefono }}</td>
+            <td>{{ $cliente->correo }}</td>
             <td> 
                 <a href="{{url('/cliente/'.$cliente->id.'/edit') }}">
                 Editar 
@@ -50,7 +52,7 @@
             value="Borrar">
              </form>   
             
-            
+            </td>
             
         </tr>
         @endforeach

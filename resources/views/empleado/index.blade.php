@@ -1,11 +1,13 @@
 @extends('layouts.main')
 @section('content')
+<div class="container">
 
-<h1> Mostrar las listas de Empleados </h1>
+<h1> Mostrar la lista de Empleados </h1>
+<a href="empleado/create" class="btn btn-primary mb-3">Crear un Empleado</a>
 
 <table class="table table-dark">
 
-    <thead class="thead-dark">
+    <thead class="thead-white">
         <tr>
             <th>#</th>
             <th>Tipo de Identificacion</th>
@@ -16,7 +18,9 @@
             <th>Telefono</th>
             <th>Correo</th>
             <th>Usuario</th>
-            <th>Acciones</th>
+            <th  colspan="2" class="text-center">Acciones </th> 
+            <th></th>
+           
         </tr>
     </thead>
 
@@ -40,19 +44,24 @@
             <td>{{ $empleado->correo }}</td>
             <td>{{ $empleado->usuario }}</td>
             <td> 
-                <a href="{{url('/empleado/'.$empleado->id.'/edit') }}">
+                <a href="{{url('/empleado/'.$empleado->id.'/edit') }}" class="btn btn-warning ">
                 Editar 
             </a>
                 
 
-             <form action="{{ url('/empleado/'.$empleado->id ) }}" method="post">
+            
+            
+            </td>
+            
+            <td>
+            <form action="{{ url('/empleado/'.$empleado->id ) }}" class="d-inline" method="post">
+             
              @csrf
              {{method_field('DELETE') }}
-            <input type="submit" onclick="return confirm('¿ Quieres borrar ?')"
+            <input class="btn btn-primary " type="submit" onclick="return confirm('¿ Quieres borrar ?')"
             value="Borrar">
              </form>   
-            
-            
+            </td>
             
         </tr>
         @endforeach

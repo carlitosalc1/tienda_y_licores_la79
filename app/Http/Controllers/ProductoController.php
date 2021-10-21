@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\producto;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -15,6 +15,8 @@ class ProductoController extends Controller
     public function index()
     {
         //
+        $datos['productos'] = Producto::paginate(10);
+        return view('producto.index',$datos);
     }
 
     /**
@@ -25,6 +27,7 @@ class ProductoController extends Controller
     public function create()
     {
         //
+        return view('producto.create');
     }
 
     /**
@@ -36,6 +39,10 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //
+        $datosProducto = request()->except('_token');
+        Producto::insert($datosProducto);
+        return redirect('producto');
+
     }
 
     /**
@@ -55,9 +62,11 @@ class ProductoController extends Controller
      * @param  \App\Models\producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function edit(producto $producto)
+    public function edit($id)
     {
         //
+        $producto=producto::findorfail($id);
+        return view('producto.edit', compact('producto'));
     }
 
     /**
@@ -67,9 +76,14 @@ class ProductoController extends Controller
      * @param  \App\Models\producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, producto $producto)
+    public function update(Request $request, $id)
     {
         //
+        $datosProducto = request()->except(['_token','_method']);
+        producto::where('id','=',$id)->update($datosProducto);
+
+        $producto=producto::findorfail($id);
+        return redirect('producto');
     }
 
     /**
@@ -78,8 +92,10 @@ class ProductoController extends Controller
      * @param  \App\Models\producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(producto $producto)
+    public function destroy($id)
     {
         //
+        producto::destroy($id);
+        return redirect('producto');
     }
 }

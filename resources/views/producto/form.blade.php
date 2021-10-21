@@ -26,5 +26,5 @@
 <label for="Precio de venta"> Precio de venta</label>
 <input type="text" name="precio_venta" value="{{ isset($producto->precio_venta) ? $producto->precio_venta : ''  }}" id="precio_venta">
 <br><br>
-<input type="submit" value=" Guardar datos" >
+<input type="submit" value="{{ $modo }} datos" >
 <br><br>

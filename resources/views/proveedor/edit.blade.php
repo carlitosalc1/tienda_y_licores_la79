@@ -1,4 +1,6 @@
-
+@extends('layouts.main')
+@section('content')
+<div class="container">
 
 <form action="{{ url('/proveedor/'.$proveedor->id ) }}" method="post" enctype="multiplart/form-data"> 
 @csrf
@@ -6,4 +8,6 @@
 @include('proveedor.form', ['modo'=>'Editar']);
 
 </form>
+</div>
+@endsection
  

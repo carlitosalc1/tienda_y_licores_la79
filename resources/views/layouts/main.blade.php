@@ -11,6 +11,7 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <script src="https://kit.fontawesome.com/9dc7629846.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
     <link href="{{ asset('css/material-dashboard.css?v=2.1.1') }}" rel="stylesheet" />
@@ -46,7 +47,7 @@
                     <span class="badge filter badge-rose" data-color="rose"></span>
                   </div>
                   <div class="clearfix"></div>
-                <!-- </a>
+                </a>
               </li>
               <li class="header-title">Images</li>
               <li class="active">
@@ -68,26 +69,8 @@
                 <a class="img-holder switch-trigger" href="javascript:void(0)">
                   <img src="{{ asset('img/sidebar-4.jpg') }}" alt="">
                 </a>
-              </li> -->
-              <!-- <li class="button-container">
-                <a href="https://www.creative-tim.com/product/material-dashboard-laravel" target="_blank" class="btn btn-primary btn-block">Free Download</a>
-              </li>
-               <!-<li class="header-title">Want more components?</li>
-                  <li class="button-container">
-                      <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
-                        Get the pro version
-                      </a>
-                  </li> -->
-              <!-- <li class="button-container">
-                <a href="https://material-dashboard-laravel.creative-tim.com/docs/getting-started/laravel-setup.html" target="_blank" class="btn btn-default btn-block">
-                  View Documentation
-                </a>
-              </li>
-              <li class="button-container">
-                <a href="https://www.creative-tim.com/product/material-dashboard-pro-laravel" target="_blank" class="btn btn-danger btn-block btn-round">
-                  Upgrade to PRO
-                </a> -->
-              
+              </li> 
+                            
             </ul>
           </div>
         </div>

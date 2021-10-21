@@ -16,7 +16,7 @@
        
         <li class="nav-item dropdown">
           <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="material-icons">person</i>
+          <i class="fas fa-user-tie fa-3x" style="color:  brown;"></i>
             <p class="d-lg-none d-md-block">
               {{ __('Account') }}
             </p>
@@ -25,7 +25,7 @@
             <!-- <a class="dropdown-item" href="{{ __('profile.edit') }}">{{ __('Profile') }}</a> -->
            
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Log out') }}</a>
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
           </div>
         </li>
       </ul>

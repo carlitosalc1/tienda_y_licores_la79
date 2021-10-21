@@ -1,7 +1,9 @@
 @extends('layouts.main')
 @section('content')
+<div class="container">
 
-<h1> Mostrar las listas de Proveedores </h1>
+<h1> Mostrar la lista de Proveedores </h1>
+<a href="proveedor/create" class="btn btn-primary mb-3">Crear un Proveedor</a>
 
 <table class="table table-dark">
 
@@ -16,6 +18,8 @@
             <th>Correo</th>
             <th>Telefono</th>
             <th>Acciones</th>
+            <th  colspan="2" class="text-center">Acciones </th> 
+            <th></th>
         </tr>
     </thead>
 
@@ -29,28 +33,30 @@
             
           </td>
 
-            <td>{{ $producto->nombre }}</td>
-            <td>{{ $producto->apellido }}</td>
-            <td>{{ $producto->razon_social }}</td>
-            <td>{{ $producto->nit }}</td>
-            <td>{{ $producto->direccion }}</td>         
-            <td>{{ $producto->correo }}</td>
-            <td>{{ $producto->telefono }}</td>
+            <td>{{ $proveedor->nombre }}</td>
+            <td>{{ $proveedor->apellido }}</td>
+            <td>{{ $proveedor->razon_social }}</td>
+            <td>{{ $proveedor->nit }}</td>
+            <td>{{ $proveedor->direccion }}</td>         
+            <td>{{ $proveedor->correo }}</td>
+            <td>{{ $proveedor->telefono }}</td>
             <td> 
                 <a href="{{url('/proveedor/'.$proveedor->id.'/edit') }}">
                 Editar 
             </a>
                 
-
-             <form action="{{ url('/proveedor/'.$proveedor->id ) }}" method="post">
+            </td>
+            
+            <td>
+            <form action="{{ url('/proveedor/'.$proveedor->id ) }}" class="d-inline" method="post">
              @csrf
              {{method_field('DELETE') }}
-            <input type="submit" onclick="return confirm('¿ Quieres borrar ?')"
+            <input class="btn btn-primary " type="submit" onclick="return confirm('¿ Quieres borrar ?')"
             value="Borrar">
              </form>   
-            
-            
-            
+            </td>
+          
+                    
         </tr>
         @endforeach
         

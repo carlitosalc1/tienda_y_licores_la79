@@ -15,6 +15,8 @@ class ClienteController extends Controller
     public function index()
     {
         //
+        $datos['clientes'] = Cliente::paginate(7);
+        return view('cliente.index',$datos);
     }
 
     /**
@@ -25,6 +27,7 @@ class ClienteController extends Controller
     public function create()
     {
         //
+        return view('cliente.create');
     }
 
     /**
@@ -36,6 +39,9 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         //
+        $datosCliente = request()->except('_token');
+        Cliente::insert($datosCliente);
+        return redirect('cliente');
     }
 
     /**
@@ -55,9 +61,11 @@ class ClienteController extends Controller
      * @param  \App\Models\cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function edit(cliente $cliente)
+    public function edit($id)
     {
         //
+        $cliente=cliente::findorfail($id);
+        return view('cliente.edit', compact('cliente'));
     }
 
     /**
@@ -67,9 +75,14 @@ class ClienteController extends Controller
      * @param  \App\Models\cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, cliente $cliente)
+    public function update(Request $request, $id)
     {
         //
+        $datosCliente = request()->except(['_token','_method']);
+        cliente::where('id','=',$id)->update($datosCliente);
+
+        $cliente=cliente::findorfail($id);
+        return redirect('cliente');
     }
 
     /**
@@ -78,8 +91,10 @@ class ClienteController extends Controller
      * @param  \App\Models\cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(cliente $cliente)
+    public function destroy($id)
     {
         //
+        cliente::destroy($id);
+        return redirect('cliente');
     }
 }

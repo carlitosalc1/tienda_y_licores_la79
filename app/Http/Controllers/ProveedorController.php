@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\proveedor;
+use App\Models\Proveedor;
 use Illuminate\Http\Request;
 
 class ProveedorController extends Controller
@@ -15,6 +15,8 @@ class ProveedorController extends Controller
     public function index()
     {
         //
+        $datos['proveedores'] = Proveedor::paginate(8);
+        return view('proveedor.index',$datos);
     }
 
     /**
@@ -25,6 +27,7 @@ class ProveedorController extends Controller
     public function create()
     {
         //
+        return view('proveedor.create');
     }
 
     /**
@@ -36,6 +39,25 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         //
+        $campos=[
+            'Nombre'=>'required|string|max:100',
+            'Apellido'=>'required|string|max:100',
+            'Razon Social'=>'required|string|max:100',
+            'Nit'=>'required|string|max:100',
+            'Direccion'=>'required|string|max:100',
+            'Correo'=>'required|string|max:100',
+            'Telefono'=>'required|email',
+
+        ];
+        $mensaje=[
+            'required'=>'El :attribute es requerido',
+        ];
+        $this->validate($request, $campos,$mensaje);
+
+        $datosProveedor = request()->except('_token');
+        Proveedor::insert($datosProveedor);
+        return redirect('proveedor');
+
     }
 
     /**
@@ -55,9 +77,11 @@ class ProveedorController extends Controller
      * @param  \App\Models\proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function edit(proveedor $proveedor)
+    public function edit($id)
     {
         //
+        $proveedor=proveedor::findorfail($id);
+        return view('proveedor.edit', compact('proveedor'));
     }
 
     /**
@@ -67,9 +91,14 @@ class ProveedorController extends Controller
      * @param  \App\Models\proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, proveedor $proveedor)
+    public function update(Request $request, $id)
     {
         //
+        $datosProveedor = request()->except(['_token','_method']);
+        proveedor::where('id','=',$id)->update($datosProveedor);
+
+        $proveedor=proveedor::findorfail($id);
+        return redirect('proveedor');
     }
 
     /**
@@ -78,8 +107,10 @@ class ProveedorController extends Controller
      * @param  \App\Models\proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(proveedor $proveedor)
+    public function destroy($id)
     {
         //
+        proveedor::destroy($id);
+        return redirect('proveedor');
     }
 }

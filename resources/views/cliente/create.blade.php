@@ -1,4 +1,5 @@
-Formulario para registrar Clientes
+@extends('layouts.main')
+@section('content')
 
 <form action="{{ url('/cliente') }}" method="post" enctype="multiplart/form-data"> 
 @csrf
@@ -7,3 +8,4 @@ Formulario para registrar Clientes
 
 
 </form>
+@endsection
