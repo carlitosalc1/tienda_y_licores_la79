@@ -7,7 +7,7 @@
 
 <table class="table table-dark">
 
-    <thead class="thead-dark">
+    <thead class="thead-white">
         <tr>
             <th>#</th>
             <th>Nombre</th>
@@ -17,7 +17,6 @@
             <th>Direccion</th>          
             <th>Correo</th>
             <th>Telefono</th>
-            <th>Acciones</th>
             <th  colspan="2" class="text-center">Acciones </th> 
             <th></th>
         </tr>
@@ -41,7 +40,7 @@
             <td>{{ $proveedor->correo }}</td>
             <td>{{ $proveedor->telefono }}</td>
             <td> 
-                <a href="{{url('/proveedor/'.$proveedor->id.'/edit') }}">
+                <a href="{{url('/proveedor/'.$proveedor->id.'/edit') }}"class="btn btn-warning ">
                 Editar 
             </a>
                 

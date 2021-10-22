@@ -47,9 +47,7 @@
                 <a href="{{url('/empleado/'.$empleado->id.'/edit') }}" class="btn btn-warning ">
                 Editar 
             </a>
-                
-
-            
+                           
             
             </td>
             
