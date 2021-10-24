@@ -37,7 +37,7 @@
 <input type="text" class="form-control" name="codigo_barra" value="{{ isset($producto->codigo_barra) ? $producto->codigo_barra : ''  }}" id="codigo_barra">
 </div>
 <div class="form-group">
-<label for="Codigo de barras"> Stock </label>
+<label for="Stock"> Stock </label>
 <input type="text" class="form-control" name="stock" value="{{ isset($producto->stock) ? $producto->stock : ''  }}" id="stock">
 </div>
 <div class="form-group">
