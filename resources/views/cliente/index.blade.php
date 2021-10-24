@@ -7,7 +7,7 @@
 
 <table class="table table-dark">
 
-    <thead class="thead-dark">
+    <thead class="thead-white">
         <tr>
             <th>#</th>
             <th>Tipo de Identificacion</th>
@@ -17,7 +17,9 @@
             <th>Direccion</th>
             <th>Telefono</th>
             <th>Correo</th>
-            <th>Acciones</th>
+            <th  colspan="2" class="text-center">Acciones </th> 
+            <th></th>
+           
         </tr>
     </thead>
 
@@ -40,19 +42,18 @@
             <td>{{ $cliente->telefono }}</td>
             <td>{{ $cliente->correo }}</td>
             <td> 
-                <a href="{{url('/cliente/'.$cliente->id.'/edit') }}">
+                <a href="{{url('/cliente/'.$cliente->id.'/edit') }}" class="btn btn-warning ">
                 Editar 
             </a>
-                
-
-             <form action="{{ url('/cliente/'.$cliente->id ) }}" method="post">
+            </td>
+            <td>  
+             <form action="{{ url('/cliente/'.$cliente->id ) }}" class="d-inline"  method="post">
              @csrf
              {{method_field('DELETE') }}
-            <input type="submit" onclick="return confirm('¿ Quieres borrar ?')"
+             <input class="btn btn-primary " type="submit" onclick="return confirm('¿ Quieres borrar ?')"
             value="Borrar">
              </form>   
-            
-            </td>
+             </td>
             
         </tr>
         @endforeach

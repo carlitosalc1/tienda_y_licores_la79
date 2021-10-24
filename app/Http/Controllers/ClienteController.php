@@ -39,6 +39,21 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         //
+        $campos=[
+            'Tipo de identificacio'=>'required|string|max:100',
+            'Numero de identificacion'=>'required|string|max:100',
+            'Nombre'=>'required|string|max:100',
+            'Apellido'=>'required|string|max:100',
+            'Direccion'=>'required|string|max:100',
+            'Telefono'=>'required|string|max:100',
+            'Correo'=>'required|email',
+
+        ];
+        $mensaje=[
+            'required'=>'El :attribute es requerido',
+        ];
+        $this->validate($request, $campos,$mensaje);
+
         $datosCliente = request()->except('_token');
         Cliente::insert($datosCliente);
         return redirect('cliente');

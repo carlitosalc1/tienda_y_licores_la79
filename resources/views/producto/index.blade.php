@@ -7,7 +7,7 @@
 
 <table class="table table-dark">
 
-    <thead class="thead-dark">
+    <thead class="thead-white">
         <tr>
             <th>#</th>
             <th>Nombre del producto</th>
@@ -19,7 +19,8 @@
             <th>Stock</th>
             <th>Precio de compra</th>
             <th>Precio de venta</th>
-            <th>Acciones</th>
+            <th  colspan="2" class="text-center">Acciones </th> 
+            <th></th>
         </tr>
     </thead>
 
@@ -43,19 +44,20 @@
             <td>{{ $producto->precio_compra }}</td>
             <td>{{ $producto->precio_venta }}</td>
             <td> 
-                <a href="{{url('/producto/'.$producto->id.'/edit') }}">
+                <a href="{{url('/producto/'.$producto->id.'/edit') }}"class="btn btn-warning ">
                 Editar 
             </a>
-                
+             
+                </td>
+                <td>
 
-             <form action="{{ url('/producto/'.$producto->id ) }}" method="post">
+             <form action="{{ url('/producto/'.$producto->id ) }}" class="d-inline" method="post">
              @csrf
              {{method_field('DELETE') }}
-            <input type="submit" onclick="return confirm('¿ Quieres borrar ?')"
+             <input class="btn btn-primary " type="submit" onclick="return confirm('¿ Quieres borrar ?')"
             value="Borrar">
              </form>   
-            
-            
+                       
             </td>
         </tr>
         @endforeach
