@@ -57,9 +57,7 @@ class EmpleadoController extends Controller
         //$datosEmpleado = request()->all();
           $datosEmpleado = request()->except('_token');
 
-        //   if($request->hasFile('foto')){
-        //       $datosEmpleado['foto']=$request->file('foto')->store('uploads','public');
-        
+           
         Empleado::insert($datosEmpleado);
         return redirect('empleado');
 
