@@ -15,7 +15,7 @@ class ProveedorController extends Controller
     public function index()
     {
         //
-        $datos['proveedores'] = Proveedor::paginate(8);
+        $datos['proveedores'] = Proveedor::paginate(7);
         return view('proveedor.index',$datos);
     }
 
@@ -39,34 +39,32 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         //
-        $campos=[
-            'Nombre'=>'required|string|max:100',
-            'Apellido'=>'required|string|max:100',
-            'Razon Social'=>'required|string|max:100',
-            'Nit'=>'required|string|max:100',
-            'Direccion'=>'required|string|max:100',
-            'Correo'=>'required|string|max:100',
-            'Telefono'=>'required|email',
+        $request->validate([
+            'nombre'=>'required|string|max:20',
+            'apellido'=>'required|string|max:20',
+            'razon_social'=>'required|string|max:20',
+            'nit'=>'required|string|max:20',
+            'direccion'=>'required|string|max:25',
+            'telefono'=>'required|string|max:15',
+            'correo'=>'required|email',
 
-        ];
-        $mensaje=[
-            'required'=>'El :attribute es requerido',
-        ];
-        $this->validate($request, $campos,$mensaje);
+        ]);
+        // $this->validate($request);
+       
+          $datosProveedor = request()->except('_token');
 
-        $datosProveedor = request()->except('_token');
+           
         Proveedor::insert($datosProveedor);
         return redirect('proveedor');
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\proveedor  $proveedor
+     * @param  \App\Models\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function show(proveedor $proveedor)
+    public function show(Proveedor $proveedor)
     {
         //
     }
@@ -74,7 +72,7 @@ class ProveedorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\proveedor  $proveedor
+     * @param  \App\Models\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -88,12 +86,23 @@ class ProveedorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\proveedor  $proveedor
+     * @param  \App\Models\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         //
+        $request->validate( [
+            'nombre'=>'required|string|max:20',
+            'apellido'=>'required|string|max:20',
+            'razon_social'=>'required|string|max:20',
+            'nit'=>'required|string|max:20',
+            'direccion'=>'required|string|max:15',
+            'telefono'=>'required|string|max:15',
+            'correo'=>'required|email',
+
+        ]);
+
         $datosProveedor = request()->except(['_token','_method']);
         proveedor::where('id','=',$id)->update($datosProveedor);
 
@@ -104,13 +113,13 @@ class ProveedorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\proveedor  $proveedor
+     * @param  \App\Models\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
-        proveedor::destroy($id);
+        Proveedor::destroy($id);
         return redirect('proveedor');
     }
 }

@@ -61,5 +61,6 @@
         
     </tbody>
 </table>
+{!! $proveedores->links() !!}
 </div>
 @endsection

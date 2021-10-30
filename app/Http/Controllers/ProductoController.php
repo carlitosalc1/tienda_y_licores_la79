@@ -39,6 +39,17 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate( [
+            'nombre_producto'=>'required|string|max:20',
+            'descripcion'=>'required|string|max:20',
+            'marca'=>'required|string|max:20',
+            'categoria'=>'required|string|max:15',
+            'cantidad'=>'required|string|max:15',
+            'codigo_barra'=>'required|string|max:16',
+            'precio_compra'=>'required|string|max:16',
+            'precio_venta'=>'required|string|max:16',
+
+        ]);
         $datosProducto = request()->except('_token');
         Producto::insert($datosProducto);
         return redirect('producto');

@@ -28,9 +28,7 @@
         <tr>
             <td>{{ $cliente->id }}</td>
 
-            <!-- <td>
-              <img scr="{{ asset('storage').'/'.$empleado->foto}}" alt="">   -->
-                           
+                                  
             
           </td>
 
@@ -60,5 +58,6 @@
         
     </tbody>
 </table>
+{!! $clientes->links() !!}
 </div>
 @endsection

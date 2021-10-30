@@ -39,21 +39,17 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         //
-        $campos=[
-            'Tipo de identificacio'=>'required|string|max:100',
-            'Numero de identificacion'=>'required|string|max:100',
-            'Nombre'=>'required|string|max:100',
-            'Apellido'=>'required|string|max:100',
-            'Direccion'=>'required|string|max:100',
-            'Telefono'=>'required|string|max:100',
-            'Correo'=>'required|email',
+        $request->validate( [
+            'tipo_identificacion'=>'required|string|max:100',
+            'numero_identificacion'=>'required|string|max:100',
+            'nombre'=>'required|string|max:100',
+            'apellido'=>'required|string|max:100',
+            'direccion'=>'required|string|max:100',
+            'telefono'=>'required|string|max:100',
+            'correo'=>'required|email',
 
-        ];
-        $mensaje=[
-            'required'=>'El :attribute es requerido',
-        ];
-        $this->validate($request, $campos,$mensaje);
-
+        ]);
+     
         $datosCliente = request()->except('_token');
         Cliente::insert($datosCliente);
         return redirect('cliente');
@@ -93,6 +89,17 @@ class ClienteController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate( [
+            'tipo_identificacion'=>'required|string|max:100',
+            'numero_identificacion'=>'required|string|max:100',
+            'nombre'=>'required|string|max:100',
+            'apellido'=>'required|string|max:100',
+            'direccion'=>'required|string|max:100',
+            'telefono'=>'required|string|max:100',
+            'correo'=>'required|email',
+
+        ]);
+
         $datosCliente = request()->except(['_token','_method']);
         cliente::where('id','=',$id)->update($datosCliente);
 

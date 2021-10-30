@@ -38,26 +38,20 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $campos=[
-            'Tipo de identificacio'=>'required|string|max:100',
-            'Numero de identificacion'=>'required|string|max:100',
-            'Nombre'=>'required|string|max:100',
-            'Apellido'=>'required|string|max:100',
-            'Direccion'=>'required|string|max:100',
-            'Telefono'=>'required|string|max:100',
-            'Correo'=>'required|email',
+        
+        $request->validate( [
+            'tipo_identificacion'=>'required|string|max:20',
+            'numero_identificacion'=>'required|string|max:20',
+            'nombre'=>'required|string|max:20',
+            'apellido'=>'required|string|max:15',
+            'direccion'=>'required|string|max:15',
+            'telefono'=>'required|string|max:16',
+            'correo'=>'required|email',
 
-        ];
-        $mensaje=[
-            'required'=>'El :attribute es requerido',
-        ];
-        $this->validate($request, $campos,$mensaje);
-
-        //$datosEmpleado = request()->all();
-          $datosEmpleado = request()->except('_token');
-
-           
+        ]);
+       
+       
+          $datosEmpleado = request()->except('_token');          
         Empleado::insert($datosEmpleado);
         return redirect('empleado');
 
@@ -100,6 +94,16 @@ class EmpleadoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate( [
+            'tipo_identificacion'=>'required|string|max:20',
+            'numero_identificacion'=>'required|string|max:20',
+            'nombre'=>'required|string|max:20',
+            'apellido'=>'required|string|max:15',
+            'direccion'=>'required|string|max:15',
+            'telefono'=>'required|string|max:16',
+            'correo'=>'required|email',
+
+        ]);
         $datosEmpleado = request()->except(['_token','_method']);
         empleado::where('id','=',$id)->update($datosEmpleado);
 
