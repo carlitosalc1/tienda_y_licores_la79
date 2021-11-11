@@ -48,7 +48,7 @@
 <div class="row">
 <label for="Nit" class="col-sm-3 col-form-label"> Nit </label>
 <div class="col-sm-7">
-<input type="text" class="form-control" name="nit" placeholder="Ingrese el Nit" value="{{ isset($proveedor->nit) ? $proveedor->nit : old('nit') }}" id="nit">
+<input type="number" class="form-control" name="nit" placeholder="Ingrese el Nit" value="{{ isset($proveedor->nit) ? $proveedor->nit : old('nit') }}" id="nit">
 @if ($errors->has('nit'))
                     <span class="error text-danger" for="input-nit">{{ $errors->first('nit') }}</span>
                   @endif

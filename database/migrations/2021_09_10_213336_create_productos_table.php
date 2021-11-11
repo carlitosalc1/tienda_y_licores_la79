@@ -18,9 +18,8 @@ class CreateProductosTable extends Migration
             $table->string('nombre_producto');
             $table->string('descripcion');
             $table->string('marca');
-            $table->string('categoria');
             $table->string('codigo_barra');
-            $table->string('cantidad');
+            $table->integer('cantidad');
             $table->string('precio_compra');
             $table->string('precio_venta');
             $table->timestamps();

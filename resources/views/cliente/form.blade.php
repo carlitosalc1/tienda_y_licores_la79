@@ -6,18 +6,7 @@
               <p class="card-category">Ingresar datos</p>
             </div>
             <div class="card-body">
-            <!-- @if(count($errors)>0)
-
-<div class="alert alert-danger" role="alert">
- <ul>
-
-   @foreach( $errors->all() as $error)
-   <li> {{ $error}} </li>
-@endforeach
- </ul>
-</div>
-
-@endif -->
+           
             <div class="row">
              <label for="Tipo de Identificacion" class="col-sm-3 col-form-label"> Tipo de Identificacion </label>
              <div class="col-sm-7">
@@ -67,7 +56,7 @@
             <div class="row">
              <label for="Telefono" class="col-sm-3 col-form-label"> Telefono </label>
               <div class="col-sm-7">
-               <input type="text" class="form-control" name="telefono" placeholder="Ingrese su Telefono" value="{{ isset($cliente->telefono) ? $cliente->telefono : old('telefono')  }}" id="telefono">
+               <input type="number" class="form-control" name="telefono" placeholder="Ingrese su Telefono" value="{{ isset($cliente->telefono) ? $cliente->telefono : old('telefono')  }}" id="telefono">
                  @if ($errors->has('telefono'))
                     <span class="error text-danger" for="input-telefono">{{ $errors->first('telefono') }}</span>
                   @endif

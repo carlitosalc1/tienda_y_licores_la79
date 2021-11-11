@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Roles extends Model
+class Rol extends Model
 {
+    protected $table = "roles";// <-- El nombre personalizado
     use HasFactory;
 }

@@ -1,9 +1,14 @@
 @extends('layouts.main')
 @section('content')
 <div class="container">
-
-<h1> Mostrar la lista de Clientes </h1>
-<a href="cliente/create" class="btn btn-primary mb-3">Crear un Cliente</a>
+    <div class="card" style='width: 1200px;'>
+        <div class="card-header card-header-primary">
+            <h4 class="card-title">Lista de Clientes</h4>
+            <p class="card-category">Datos de los Clientes</p>
+            <a href="cliente/create" class="btn btn-warning mx-sm-3 mb-3">Crear un Cliente</a>
+        </div>
+        
+        <div class="card-body">
 
 <table class="table table-dark">
 

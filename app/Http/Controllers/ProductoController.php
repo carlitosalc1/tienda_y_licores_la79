@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Producto;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -26,8 +27,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
-        return view('producto.create');
+    $categorias = Categoria::all();
+        return view('producto.create', compact('categorias'));
     }
 
     /**
@@ -41,9 +42,9 @@ class ProductoController extends Controller
         //
         $request->validate( [
             'nombre_producto'=>'required|string|max:20',
-            'descripcion'=>'required|string|max:20',
+            'descripcion'=>'required|string|max:50',
             'marca'=>'required|string|max:20',
-            'categoria'=>'required|string|max:15',
+            'id_categoria'=>'required|string|max:15',
             'cantidad'=>'required|string|max:15',
             'codigo_barra'=>'required|string|max:16',
             'precio_compra'=>'required|string|max:16',

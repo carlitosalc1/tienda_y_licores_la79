@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categoria extends Model
 {
+    public $table = "categorias";
+    protected $filiable = [
+        'id','nombre'
+    ];
+    public $timestamps = false;
     use HasFactory;
 }

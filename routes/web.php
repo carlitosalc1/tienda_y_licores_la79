@@ -6,7 +6,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\ProductoController;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RolController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,17 +22,8 @@ use App\Http\Controllers\ProductoController;
  Route::get('/', function () {
     return view('welcome');
 });
-/*Route::get('/', function () {
-    return view('welcome');
-});
-// Route::get('/empleado',function(){
-//     return view('empleado.index');
-// });
-*/
 
-
-
-Route::resource('empleado',EmpleadoController::class)->middleware('auth');
+Route::resource('usuario',UserController::class)->middleware('auth');
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -44,6 +36,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('producto',ProductoController::class)->middleware('auth');
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('rol',RolController::class)->middleware('auth');
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

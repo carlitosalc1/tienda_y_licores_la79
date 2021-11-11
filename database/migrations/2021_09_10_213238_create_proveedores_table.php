@@ -17,7 +17,7 @@ class CreateProveedoresTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('apellido');
-            $table->string('razon social');
+            $table->string('razon_social');
             $table->string('nit');
             $table->string('direccion');
             $table->string('correo');

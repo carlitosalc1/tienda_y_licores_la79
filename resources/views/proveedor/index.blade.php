@@ -1,10 +1,14 @@
 @extends('layouts.main')
 @section('content')
 <div class="container">
-
-<h1> Mostrar la lista de Proveedores </h1>
-<a href="proveedor/create" class="btn btn-primary mb-3">Crear un Proveedor</a>
-
+    <div class="card" style='width: 1200px;'>
+        <div class="card-header card-header-primary">
+            <h4 class="card-title">Lista de Proveedores</h4>
+            <p class="card-category">Datos de los Proveedores</p>
+            <a href="proveedor/create" class="btn btn-warning mx-sm-3 mb-3">Crear un Proveedor</a>
+        </div>
+        
+        <div class="card-body">
 <table class="table table-dark">
 
     <thead class="thead-white">
